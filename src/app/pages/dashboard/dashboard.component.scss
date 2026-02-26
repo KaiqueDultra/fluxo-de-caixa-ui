@@ -1,0 +1,113 @@
+.glass-footer {
+  width: 100%;
+  margin-top: 40px;
+  padding: 18px 24px;
+
+  /* Degradê azul igual à arte */
+  background: linear-gradient(
+      135deg,
+      rgba(210, 225, 245, 0.9),
+      rgba(235, 242, 252, 0.85)
+  );
+
+  /* Efeito vidro (glassmorphism) */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Borda arredondada */
+  border-radius: 20px 20px 0 0;
+
+  /* Sombra suave */
+  box-shadow:
+    0 -8px 25px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  border: 1px solid rgba(180, 200, 230, 0.6);
+}
+
+.footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* ESQUERDA */
+.footer-left {
+  max-width: 300px;
+}
+
+.footer-title {
+  font-weight: 700;
+  color: #2b4c7e;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.footer-sub {
+  color: #5f6f8f;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* CENTRO */
+.footer-center {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7ea6e0, #5b8ed6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+}
+
+.divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(120, 140, 180, 0.4);
+}
+
+/* DIREITA */
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  color: #2b4c7e;
+}
+
+.divider-vertical {
+  width: 1px;
+  height: 18px;
+  background: rgba(120, 140, 180, 0.5);
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .footer-center {
+    flex-direction: column;
+  }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+  }
+
+  .footer-right {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
