@@ -1,15 +1,68 @@
+// -------------------------------
+// 1️⃣ Angular Material Core - deve vir **no topo**
+@use '@angular/material' as mat;
+@include mat.core();
+
+// -------------------------------
+// 2️⃣ Tailwind base, components, utilities
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+// -------------------------------
+// 3️⃣ HTML e Body
 html, body {
   height: 100%;
   margin: 0;
+  font-family: Roboto, sans-serif;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
 }
 
+// -------------------------------
+// 4️⃣ Fundo da tela de login
 .login-container {
   min-height: 100vh;
   background:
     linear-gradient(rgba(0,0,50,0.4), rgba(0,0,80,0.4)),
     url("assets/images/background-pig.png") center / cover no-repeat;
+}
+
+// -------------------------------
+// 5️⃣ Toast Animado
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  font-weight: bold;
+  color: #1e3a8a;
+
+  display: flex;           /* alinhamento horizontal */
+  align-items: center;     /* centraliza verticalmente */
+  gap: 1rem;               /* ⚡ espaçamento entre mensagem e botão X */
+
+  opacity: 0;              /* invisível por padrão */
+  transition: opacity 0.5s ease-in-out; /* fade suave */
+  pointer-events: none;    /* não bloqueia clique quando invisível */
+  z-index: 50;             /* garante que fique acima de tudo */
+}
+
+.toast.show {
+  opacity: 1;              /* visível */
+  pointer-events: auto;    /* pode clicar no botão X */
+}
+
+.toast-close {
+  background: transparent;
+  border: none;
+  color: #1e3a8a;
+  font-size: 1.2rem;
+  cursor: pointer;
 }

@@ -31,11 +31,20 @@
 
     <!-- BOTÃO EXISTENTE -->
     <button
-      class="bg-blue-600 hover:bg-blue-700 text-white
-             px-6 py-2 rounded-2xl shadow-md
-             transition duration-300">
+      (click)="showPlanilhaToast()"
+      class="bg-white/80 hover:bg-blue-600 hover:text-white
+             text-blue-900 font-semibold
+             px-5 py-2 rounded-2xl
+             border border-white/40
+             shadow-md transition duration-300">
       Baixar Planilha
     </button>
+
+    <!-- Toast SEM usar @if -->
+    <div class="toast" [class.show]="toastVisible">
+      🐷 {{ toastMessage }}
+      <button class="toast-close" (click)="closeToast()">✖</button>
+    </div>
 
   </div>
 </div>

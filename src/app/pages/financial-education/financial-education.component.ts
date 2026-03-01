@@ -3,9 +3,7 @@ import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-financial-education',
-  imports: [
-    RouterLink
-  ],
+  imports: [],
   templateUrl: './financial-education.component.html',
   styleUrl: './financial-education.component.scss',
 })
