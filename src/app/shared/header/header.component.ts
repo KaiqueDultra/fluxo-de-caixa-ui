@@ -12,7 +12,7 @@ export class HeaderComponent {
   toastMessage = '';
 
   showPlanilhaToast() {
-    this.toastMessage = 'Planilha ainda não disponível para download';
+    this.toastMessage = 'Planilha não disponível para download';
     this.toastVisible = true;
   }
 

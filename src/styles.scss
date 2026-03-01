@@ -44,19 +44,26 @@ html, body {
   font-weight: bold;
   color: #1e3a8a;
 
-  display: flex;           /* alinhamento horizontal */
-  align-items: center;     /* centraliza verticalmente */
-  gap: 1rem;               /* ⚡ espaçamento entre mensagem e botão X */
+  display: flex;
+  align-items: center;
 
-  opacity: 0;              /* invisível por padrão */
-  transition: opacity 0.5s ease-in-out; /* fade suave */
-  pointer-events: none;    /* não bloqueia clique quando invisível */
-  z-index: 50;             /* garante que fique acima de tudo */
+  /* largura fluida */
+  width: clamp(280px, 90%, 500px); /* 90% da tela no mobile, max 500px no desktop */
+  word-wrap: break-word;
+
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.toast-message {
+  flex: 1; /* texto ocupa todo espaço disponível */
 }
 
 .toast.show {
-  opacity: 1;              /* visível */
-  pointer-events: auto;    /* pode clicar no botão X */
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .toast-close {
@@ -65,11 +72,8 @@ html, body {
   color: #1e3a8a;
   font-size: 1.2rem;
   cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  .toast {
-    width: calc(100vw - 2rem);
-    max-width: unset;
-  }
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;   /* não encolhe */
+  margin-left: auto; /* força o botão colado à direita */
 }
