@@ -66,3 +66,10 @@ html, body {
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+@media (max-width: 600px) {
+  .toast {
+    width: calc(100vw - 2rem);
+    max-width: unset;
+  }
+}
