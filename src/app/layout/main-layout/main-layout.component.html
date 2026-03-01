@@ -1,0 +1,16 @@
+<div class="relative min-h-screen">
+
+  <!-- FUNDO GLOBAL (CORRETO) -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-200 to-blue-400"></div>
+
+  <!-- CONTAINER GLOBAL -->
+  <div class="relative z-10 min-h-screen p-4 md:p-8 flex flex-col">
+
+    <app-header class="mb-8"></app-header>
+
+    <router-outlet></router-outlet>
+
+    <app-footer class="mt-12"></app-footer>
+
+  </div>
+</div>

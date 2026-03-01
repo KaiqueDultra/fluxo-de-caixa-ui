@@ -1,17 +1,40 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FinancialEducationComponent } from './pages/financial-education/financial-education.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { UnderConstructionComponent } from './pages/under-construction/under-construction.component';
 
 export const routes: Routes = [
 
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    pathMatch: 'full'
   },
+
   {
-    path: 'dashboard',
-    component: DashboardComponent
+    path: '',
+    component: MainLayoutComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'financial-education',
+        component: FinancialEducationComponent
+      },
+      {
+        path: 'under-construction',
+        component: UnderConstructionComponent
+      }
+    ]
+  },
+
+  {
+    path: '**',
+    redirectTo: ''
   }
 
 ];
-
