@@ -4,6 +4,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FinancialEducationComponent } from './pages/financial-education/financial-education.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { UnderConstructionComponent } from './pages/under-construction/under-construction.component';
+import { EntrepreneurSupportComponent } from './pages/entrepreneur-support/entrepreneur-support.component';
 
 export const routes: Routes = [
 
@@ -26,8 +27,8 @@ export const routes: Routes = [
         component: FinancialEducationComponent
       },
       {
-        path: 'under-construction',
-        component: UnderConstructionComponent
+        path: 'entrepreneur-support',
+        component: EntrepreneurSupportComponent
       }
     ]
   },
