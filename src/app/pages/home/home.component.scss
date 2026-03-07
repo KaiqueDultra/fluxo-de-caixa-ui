@@ -1,0 +1,35 @@
+.pig-walk {
+  animation: pigWalk 3s ease-out forwards, pigBounce 1.4s ease-in-out 3s infinite;
+}
+
+/* entra andando da esquerda */
+@keyframes pigWalk {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateX(20px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* leve balanço */
+@keyframes pigBounce {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
