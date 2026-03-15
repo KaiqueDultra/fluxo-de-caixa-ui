@@ -28,7 +28,6 @@
       <!-- GRÁFICO -->
       <div class="chart mt-2">
         <svg viewBox="0 0 300 100">
-
           <path
             d="M0 80 L60 60 L120 70 L180 30 L240 50 L300 10"
             class="chart-path"
@@ -40,7 +39,6 @@
             cx="0"
             cy="80"
           />
-
         </svg>
       </div>
 
@@ -48,12 +46,14 @@
 
     <!-- FORMULÁRIO -->
     <div class="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-10 w-full max-w-md mx-auto">
+
       <h2 class="text-2xl font-bold text-center text-blue-800 mb-8">
         COMECE AGORA
       </h2>
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
 
+        <!-- NOME -->
         <div>
           <input
             type="text"
@@ -61,8 +61,19 @@
             placeholder="Digite seu nome"
             class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+
+          @if (form.get('nome')?.touched && form.get('nome')?.errors) {
+
+            @if (form.get('nome')?.errors?.['required']) {
+              <p class="text-red-500 text-sm mt-1">
+                Nome obrigatório
+              </p>
+            }
+
+          }
         </div>
 
+        <!-- EMAIL -->
         <div>
           <input
             type="email"
@@ -70,17 +81,59 @@
             placeholder="Digite seu e-mail"
             class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
+
+          @if (form.get('email')?.touched && form.get('email')?.errors) {
+
+            @if (form.get('email')?.errors?.['required']) {
+              <p class="text-red-500 text-sm mt-1">
+                E-mail obrigatório
+              </p>
+            }
+
+            @else if (form.get('email')?.errors?.['email']) {
+              <p class="text-red-500 text-sm mt-1">
+                E-mail inválido
+              </p>
+            }
+
+          }
         </div>
 
+        <!-- TELEFONE -->
         <div>
           <input
             type="tel"
             formControlName="telefone"
             placeholder="Digite seu telefone"
             class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            pattern="[0-9]{11}"
+            maxlength="11"
           />
+
+          @if (form.get('telefone')?.touched && form.get('telefone')?.errors) {
+
+            @if (form.get('telefone')?.errors?.['required']) {
+              <p class="text-red-500 text-sm mt-1">
+                Telefone obrigatório
+              </p>
+            }
+
+            @else if (form.get('telefone')?.errors?.['minlength']) {
+              <p class="text-red-500 text-sm mt-1">
+                Telefone inválido (mínimo 10 dígitos)
+              </p>
+            }
+
+            @else if (form.get('telefone')?.errors?.['onlyNumbers']) {
+              <p class="text-red-500 text-sm mt-1">
+                Telefone deve conter apenas números
+              </p>
+            }
+
+          }
         </div>
 
+        <!-- BOTÃO -->
         <button
           routerLink="/dashboard"
           type="submit"
@@ -98,6 +151,7 @@
         </p>
 
       </form>
+
     </div>
 
   </div>
