@@ -1,35 +1,214 @@
-.pig-walk {
-  animation: pigWalk 3s ease-out forwards, pigBounce 1.4s ease-in-out 3s infinite;
+/* PORQUINHO */
+
+.pig{
+  position:relative;
+  z-index:3;
+
+  animation:
+    pigEnter 1s ease-out forwards,
+    pigFloat 4s ease-in-out infinite 1s,
+    pigBreath 4s ease-in-out infinite 1s;
 }
 
-/* entra andando da esquerda */
-@keyframes pigWalk {
-  0% {
-    transform: translateX(-200px);
-    opacity: 0;
+@keyframes pigEnter{
+  0%{
+    opacity:0;
+    transform:translateY(40px) scale(.8);
   }
 
-  60% {
-    transform: translateX(20px);
+  60%{
+    transform:translateY(-6px) scale(1.05);
   }
 
-  80% {
-    transform: translateX(-10px);
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
+  100%{
+    opacity:1;
+    transform:translateY(0) scale(1);
   }
 }
 
-/* leve balanço */
-@keyframes pigBounce {
-  0%,100% {
-    transform: translateY(0);
+@keyframes pigFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+@keyframes pigBreath{
+  0%,100%{scale:1}
+  50%{scale:1.03}
+}
+
+/* ===================== */
+/* MOEDAS SUBINDO */
+/* ===================== */
+
+.coins-up{
+  position:absolute;
+  width:300px;
+  height:200px;
+  pointer-events:none;
+}
+
+.coin{
+  position:absolute;
+
+  width:24px;
+  height:24px;
+
+  border-radius:50%;
+
+  background:linear-gradient(145deg,#FFD700,#FFC107);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-weight:bold;
+  font-size:14px;
+
+  animation:
+    coinRise 6s linear infinite,
+    coinSpin 3s linear infinite;
+}
+
+.coin:nth-child(1){left:10%; animation-delay:0s;}
+.coin:nth-child(2){left:35%; animation-delay:2s;}
+.coin:nth-child(3){left:60%; animation-delay:4s;}
+.coin:nth-child(4){left:85%; animation-delay:1s;}
+
+@keyframes coinRise{
+
+  0%{
+    transform:translateY(90px) scale(.8);
+    opacity:0;
   }
 
-  50% {
-    transform: translateY(-6px);
+  20%{opacity:1;}
+
+  80%{opacity:1;}
+
+  100%{
+    transform:translateY(-120px) scale(1.2);
+    opacity:0;
   }
+
+}
+
+@keyframes coinSpin{
+  from{rotate:0deg}
+  to{rotate:360deg}
+}
+
+/* ===================== */
+/* MOEDAS CAINDO */
+/* ===================== */
+
+.coins-fall{
+  position:absolute;
+  width:300px;
+  height:200px;
+}
+
+.coin-fall{
+  position:absolute;
+
+  width:22px;
+  height:22px;
+
+  border-radius:50%;
+
+  background:linear-gradient(145deg,#FFD700,#FFC107);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:13px;
+  font-weight:bold;
+
+  animation:
+    coinFall 4s linear infinite,
+    coinSpin 2s linear infinite;
+}
+
+.coin-fall:nth-child(1){
+  left:40%;
+  animation-delay:1s;
+}
+
+.coin-fall:nth-child(2){
+  left:65%;
+  animation-delay:3s;
+}
+
+@keyframes coinFall{
+
+  0%{
+    transform:translateY(-120px);
+    opacity:0;
+  }
+
+  20%{opacity:1;}
+
+  100%{
+    transform:translateY(40px);
+    opacity:0;
+  }
+
+}
+
+/* ===================== */
+/* GRÁFICO */
+/* ===================== */
+
+.chart{
+  width:360px;
+  margin-top:-70px;
+}
+
+.chart svg{
+  width:100%;
+  height:120px;
+}
+
+.chart-path{
+
+  fill:none;
+  stroke:#2563eb;
+  stroke-width:4;
+
+  stroke-dasharray:400;
+  stroke-dashoffset:400;
+
+  animation:drawChart 6s ease forwards;
+}
+
+/* ponto do gráfico */
+
+.chart-dot{
+
+  fill:#2563eb;
+
+  filter:
+    drop-shadow(0 0 6px #2563eb)
+    drop-shadow(0 0 12px #60a5fa);
+
+  animation:moveDot 6s linear forwards;
+}
+
+/* animações */
+
+@keyframes drawChart{
+  to{
+    stroke-dashoffset:0;
+  }
+}
+
+@keyframes moveDot{
+
+  0% {cx:0; cy:80;}
+  20% {cx:60; cy:60;}
+  40% {cx:120; cy:70;}
+  60% {cx:180; cy:30;}
+  80% {cx:240; cy:50;}
+  100% {cx:300; cy:10;}
+
 }
