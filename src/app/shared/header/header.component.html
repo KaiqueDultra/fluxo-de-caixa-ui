@@ -14,10 +14,8 @@
     </h1>
   </div>
 
-  <!-- AÇÕES (NAVEGAÇÃO + BOTÕES) -->
   <div class="flex items-center gap-3 flex-wrap justify-center md:justify-end">
 
-    <!-- BOTÃO DASHBOARD -->
     <button
       routerLink="/dashboard"
       routerLinkActive="bg-blue-700"
@@ -29,9 +27,8 @@
       Dashboard
     </button>
 
-    <!-- BOTÃO EXISTENTE -->
     <button
-      (click)="showPlanilhaToast()"
+      (click)="abrirModal()"
       class="bg-white/80 hover:bg-blue-600 hover:text-white
              text-blue-900 font-semibold
              px-5 py-2 rounded-2xl
@@ -40,11 +37,71 @@
       Baixar Planilha
     </button>
 
-    <!-- Toast SEM usar @if -->
-    <div class="toast" [class.show]="toastVisible">
-      🐷 {{ toastMessage }}
-      <button class="toast-close" (click)="closeToast()">✖</button>
-    </div>
-
   </div>
 </div>
+
+@if (modalAberto) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center animate-fade">
+
+    <div
+      class="absolute inset-0 bg-black/40 backdrop-blur-sm">
+    </div>
+
+    <div
+      (click)="$event.stopPropagation()"
+      class="relative bg-white/70 backdrop-blur-xl border border-white/30
+             rounded-3xl shadow-xl p-6 w-[90%] max-w-md text-center z-10
+             animate-scale">
+
+      <div class="text-4xl mb-2">🐷</div>
+
+      <h2 class="text-xl font-bold text-blue-900 mb-2">
+        Baixar Planilha
+      </h2>
+
+      <p class="text-blue-800 mb-6">
+        Você deseja baixar a planilha?
+      </p>
+
+      <div class="flex gap-3 justify-center">
+
+        <button
+          (click)="fecharModal()"
+          [disabled]="isDownloading"
+          class="px-5 py-2 rounded-2xl bg-white/80 text-blue-900
+                 border border-white/40 shadow hover:bg-gray-200 transition
+                 disabled:opacity-60 disabled:cursor-not-allowed">
+          Não
+        </button>
+
+        <button
+          (click)="confirmarDownload()"
+          [disabled]="isDownloading"
+          class="px-5 py-2 rounded-2xl bg-blue-600 text-white
+                 shadow hover:bg-blue-700 transition
+                 flex items-center gap-2 justify-center
+                 disabled:opacity-60 disabled:cursor-not-allowed">
+
+          @if (!isDownloading) {
+            <span>Sim</span>
+          }
+
+          @if (isDownloading) {
+            <span class="flex items-center gap-2">
+              <span>Baixando...</span>
+              <span class="loader"></span>
+            </span>
+          }
+
+        </button>
+
+      </div>
+    </div>
+  </div>
+}
+
+@if (toastVisible) {
+  <div class="toast show">
+    🐷 {{ toastMessage }}
+  </div>
+}

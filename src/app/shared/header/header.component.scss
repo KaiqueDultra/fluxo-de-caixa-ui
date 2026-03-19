@@ -1,1 +1,77 @@
 
+/* 🔥 fade do fundo */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.25s ease-out;
+}
+
+/* 🔥 escala do modal */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale {
+  animation: scaleIn 0.25s ease-out;
+}
+
+.loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔥 centraliza horizontal */
+  text-align: center;      /* 🔥 centraliza o texto */
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast-close {
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
