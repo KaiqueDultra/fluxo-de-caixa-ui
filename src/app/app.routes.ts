@@ -6,6 +6,7 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { UnderConstructionComponent } from './pages/under-construction/under-construction.component';
 import { EntrepreneurSupportComponent } from './pages/entrepreneur-support/entrepreneur-support.component';
 import { SheetControlComponent } from './pages/sheet-control/sheet-control.component';
+import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
 
@@ -38,6 +39,10 @@ export const routes: Routes = [
       {
         path: 'sheet-control',
         component: SheetControlComponent
+      },
+      {
+        path: 'AboutComponent',
+        component: AboutComponent
       }
     ]
   },
