@@ -1,0 +1,139 @@
+/* GARANTE QUE NADA BLOQUEIE CLIQUE */
+.coins-up,
+.coins-fall,
+.chart {
+  pointer-events: none;
+}
+
+/* PORQUINHO */
+.pig {
+  position: relative;
+  z-index: 1;
+  animation:
+    pigEnter 1s ease-out forwards,
+    pigFloat 4s ease-in-out infinite 1s,
+    pigBreath 4s ease-in-out infinite 1s;
+}
+
+@keyframes pigEnter {
+  0% { opacity: 0; transform: translateY(40px) scale(.8); }
+  60% { transform: translateY(-6px) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pigFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pigBreath {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* MOEDAS SUBINDO */
+.coins-up {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+}
+
+.coin {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(145deg,#FFD700,#FFC107);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: coinRise 6s linear infinite, coinSpin 3s linear infinite;
+}
+
+.coin:nth-child(1){left:10%;}
+.coin:nth-child(2){left:35%; animation-delay:2s;}
+.coin:nth-child(3){left:60%; animation-delay:4s;}
+.coin:nth-child(4){left:85%; animation-delay:1s;}
+
+@keyframes coinRise {
+  0% { transform: translateY(90px); opacity:0; }
+  20% { opacity:1; }
+  100% { transform: translateY(-120px); opacity:0; }
+}
+
+@keyframes coinSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* MOEDAS CAINDO */
+.coins-fall {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+}
+
+.coin-fall {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(145deg,#FFD700,#FFC107);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: coinFall 4s linear infinite;
+}
+
+.coin-fall:nth-child(1){left:40%;}
+.coin-fall:nth-child(2){left:65%; animation-delay:2s;}
+
+@keyframes coinFall {
+  0% { transform: translateY(-120px); opacity:0; }
+  20% { opacity:1; }
+  100% { transform: translateY(40px); opacity:0; }
+}
+
+/* GRÁFICO */
+.chart {
+  width: 360px;
+  margin-top: -70px;
+}
+
+.chart-path {
+  fill: none;
+  stroke: #2563eb;
+  stroke-width: 4;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawChart 6s ease forwards;
+}
+
+.chart-dot {
+  fill: #2563eb;
+  animation: moveDot 6s linear forwards;
+}
+
+@keyframes drawChart {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes moveDot {
+  0% {cx:0; cy:80;}
+  100% {cx:300; cy:10;}
+}
+
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 3px solid white;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

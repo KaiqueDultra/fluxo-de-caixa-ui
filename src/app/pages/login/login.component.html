@@ -1,0 +1,81 @@
+<div class="login-container min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-6xl flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
+
+    <!-- ANIMAÇÃO -->
+    <div class="flex flex-col items-center text-white relative z-0 pointer-events-none">
+
+      <div class="coins-up">
+        <div class="coin">$</div>
+        <div class="coin">$</div>
+        <div class="coin">$</div>
+        <div class="coin">$</div>
+      </div>
+
+      <div class="coins-fall">
+        <div class="coin-fall">$</div>
+        <div class="coin-fall">$</div>
+      </div>
+
+      <img src="assets/images/login-pig-removebg-preview.png"
+           class="pig w-[340px] md:w-[380px] drop-shadow-2xl" />
+
+      <div class="chart mt-2">
+        <svg viewBox="0 0 300 100">
+          <path d="M0 80 L60 60 L120 70 L180 30 L240 50 L300 10" class="chart-path"/>
+          <circle class="chart-dot" r="5" cx="0" cy="80"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="relative z-20 bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-10 w-full max-w-md mx-auto">
+
+      <!-- 🔥 TOAST DENTRO DO CARD -->
+      @if (toastVisible) {
+        <div class="absolute -top-14 left-1/2 -translate-x-1/2
+                    bg-gradient-to-r from-blue-600 to-blue-800
+                    text-white px-5 py-2 rounded-lg shadow-xl
+                    flex items-center gap-2 animate-fade-in-down whitespace-nowrap">
+          🐷 <span>{{ toastMessage }}</span>
+        </div>
+      }
+
+      <h2 class="text-2xl font-bold text-center text-blue-800 mb-8">
+        ENTRAR
+      </h2>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+
+        <input type="email" formControlName="email" placeholder="Digite seu e-mail"
+               class="w-full p-3 rounded-lg border" />
+
+        <input type="password" formControlName="senha" placeholder="Digite sua senha"
+               class="w-full p-3 rounded-lg border" />
+
+        <button type="submit"
+                [disabled]="form.invalid || isLoading"
+                class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 rounded-full
+                       hover:scale-105 transition transform disabled:opacity-50 flex items-center justify-center gap-2">
+
+          @if (isLoading) {
+            <span class="loader"></span>
+            Entrando...
+          } @else {
+            Entrar
+          }
+
+        </button>
+
+        <p class="text-sm text-center mt-4">
+          Não tem conta?
+          <a routerLink="/cadastro" class="text-blue-700 font-semibold cursor-pointer">
+            Criar conta
+          </a>
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</div>

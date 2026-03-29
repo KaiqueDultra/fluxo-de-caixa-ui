@@ -1,0 +1,90 @@
+<div class="login-container min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-6xl flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
+
+    <!-- ANIMAÇÃO -->
+    <div class="flex flex-col items-center text-white relative z-0 pointer-events-none">
+
+      <div class="coins-up">
+        <div class="coin">$</div>
+        <div class="coin">$</div>
+        <div class="coin">$</div>
+        <div class="coin">$</div>
+      </div>
+
+      <div class="coins-fall">
+        <div class="coin-fall">$</div>
+        <div class="coin-fall">$</div>
+      </div>
+
+      <img src="assets/images/login-pig-removebg-preview.png"
+           class="pig w-[340px] md:w-[380px] drop-shadow-2xl" />
+
+      <div class="chart mt-2">
+        <svg viewBox="0 0 300 100">
+          <path d="M0 80 L60 60 L120 70 L180 30 L240 50 L300 10" class="chart-path"/>
+          <circle class="chart-dot" r="5" cx="0" cy="80"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="relative z-20 bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-10 w-full max-w-md mx-auto">
+
+      <h2 class="text-2xl font-bold text-center text-blue-800 mb-8">
+        COMECE AGORA
+      </h2>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="space-y-4">
+
+        <input type="text" formControlName="nome" placeholder="Digite seu nome"
+               class="w-full p-3 rounded-lg border" />
+
+        <input type="email" formControlName="email" placeholder="Digite seu e-mail"
+               class="w-full p-3 rounded-lg border" />
+
+        <input type="tel" formControlName="telefone" placeholder="Digite seu telefone"
+               class="w-full p-3 rounded-lg border" />
+
+        <input type="password" formControlName="senha" placeholder="Digite sua senha"
+               class="w-full p-3 rounded-lg border" />
+
+        <!-- 🔥 BOTÃO COM LOADING -->
+        <button type="submit"
+                [disabled]="form.invalid || isLoading"
+                class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-3 rounded-full
+                       flex items-center justify-center gap-2
+                       hover:scale-105 transition transform disabled:opacity-50">
+
+          @if (!isLoading) {
+            <span>Registrar</span>
+          }
+
+          @if (isLoading) {
+            <span class="flex items-center gap-2">
+              <span>Criando...</span>
+              <span class="loader"></span>
+            </span>
+          }
+
+        </button>
+
+        <p class="text-sm text-center mt-4">
+          Já tem conta?
+          <a routerLink="/login" class="text-blue-700 font-semibold cursor-pointer hover:underline">
+            Entrar
+          </a>
+        </p>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- 🔥 TOAST -->
+@if (toastVisible) {
+  <div class="toast show">
+    🐷 {{ toastMessage }}
+  </div>
+}

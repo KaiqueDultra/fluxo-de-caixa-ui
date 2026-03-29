@@ -7,15 +7,27 @@ import { UnderConstructionComponent } from './pages/under-construction/under-con
 import { EntrepreneurSupportComponent } from './pages/entrepreneur-support/entrepreneur-support.component';
 import { SheetControlComponent } from './pages/sheet-control/sheet-control.component';
 import { AboutComponent } from './pages/about/about.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
 
 export const routes: Routes = [
 
+  // 🔓 ROTAS PÚBLICAS
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'cadastro',
+    component: CadastroComponent
+  },
 
+  // 🔒 ROTAS COM LAYOUT (APP)
   {
     path: '',
     component: MainLayoutComponent,
@@ -41,7 +53,7 @@ export const routes: Routes = [
         component: SheetControlComponent
       },
       {
-        path: 'AboutComponent',
+        path: 'about',
         component: AboutComponent
       }
     ]
@@ -49,7 +61,7 @@ export const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'login'
   }
 
 ];
