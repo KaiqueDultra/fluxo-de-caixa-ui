@@ -11,57 +11,48 @@ export class AboutComponent {
   integrantes = [
     {
       nome: 'Bruna Paz Callemi Lucas',
-      cargo: 'Desenvolvedor Front-end',
+      descricao: 'Responsável pela interface e experiência do usuário.',
+      foto: 'assets/images/bruna.jpeg'
+    },
+    {
+      nome: 'Kaillany Lima de Almeida',
       descricao: 'Responsável pela interface e experiência do usuário.',
       foto: 'assets/images/pig-money.png'
     },
     {
-      nome: 'Kaillany Lima de Almeida',
-      cargo: 'Back-end',
-      descricao: 'Responsável pelas regras de negócio.',
-      foto: 'assets/images/pig-money.png'
-    },
-    {
       nome: 'Julia Helena Saffe',
-      cargo: 'Back-end',
-      descricao: 'Responsável pelas regras de negócio.',
-      foto: 'assets/images/pig-money.png'
+      descricao: 'Responsável pelas imagens e icons usados no Fluxo de Caixa.',
+      foto: 'assets/images/julia.jpeg'
     },
     {
       nome: 'Rawany Tamires Faustino Lucinda',
-      cargo: 'Back-end',
-      descricao: 'Responsável pelas regras de negócio.',
-      foto: 'assets/images/pig-money.png'
+      descricao: 'Responsável pelos empreendedores que utilizaram o Fluxo de Caixa.',
+      foto: 'assets/images/rawany.jpeg'
     },
     {
       nome: 'Sara Andrade Timóteo dos Santos',
-      cargo: 'Back-end',
-      descricao: 'Responsável pelas regras de negócio.',
+      descricao: 'Responsável pelos patrocinadores do Fluxo de Caixa.',
       foto: 'assets/images/pig-money.png'
     },
     {
       nome: 'Erika Cristina de Oliveira Jacinto',
-      cargo: 'Back-end',
-      descricao: 'Responsável pelas regras de negócio.',
-      foto: 'assets/images/pig-money.png'
+      descricao: 'Responsável pelos patrocinadores do Fluxo de Caixa.',
+      foto: 'assets/images/erika.jpeg'
     },
     {
       nome: 'Giovanna Lionardo Saraiva',
-      cargo: 'Back-end',
       descricao: 'Responsável pelas regras de negócio.',
-      foto: 'assets/images/pig-money.png'
+      foto: 'assets/images/giovanna.jpeg'
     },
     {
       nome: 'Allan Fernandes de Souza Archanjo',
-      cargo: 'Back-end',
-      descricao: 'Responsável pelas regras de negócio.',
+      descricao: 'Responsável pelo desenvolvimento da planilha.',
       foto: 'assets/images/pig-money.png'
     },
     {
       nome: 'Jennifer Micaela Ricardo Marques',
-      cargo: 'Back-end',
       descricao: 'Responsável pelas regras de negócio.',
-      foto: 'assets/images/pig-money.png'
+      foto: 'assets/images/jennifer.jpeg'
     }
   ];
 
