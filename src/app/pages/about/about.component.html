@@ -2,6 +2,7 @@
 
   <div class="relative z-10 p-6 max-w-6xl mx-auto space-y-10">
 
+    <!-- Título -->
     <div class="text-center">
       <h1 class="text-3xl md:text-4xl font-bold text-blue-900">
         Nossa Equipe
@@ -11,6 +12,7 @@
       </p>
     </div>
 
+    <!-- GRID PRINCIPAL -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       @for (pessoa of integrantes; track pessoa.nome) {
@@ -37,6 +39,42 @@
 
       }
 
+    </div>
+
+    <!-- LINHA SEPARADORA -->
+    <div class="w-full flex justify-center">
+      <div class="w-32 h-1 bg-blue-200 rounded-full my-8"></div>
+    </div>
+
+    <!-- CARD CENTRALIZADO -->
+    <div class="flex justify-center">
+      <div class="w-full sm:w-[48%] lg:w-[32%]">
+
+        <div
+          class="bg-white/70 backdrop-blur-xl border border-white/30 rounded-2xl p-6 shadow-lg text-center hover:scale-105 hover:shadow-2xl transition duration-300"
+        >
+
+          <img
+            src="assets/images/kaique.jpeg"
+            alt="Kaique"
+            class="w-24 h-24 mx-auto rounded-full object-cover shadow-md border-4 border-white"
+          />
+
+          <h3 class="mt-4 font-bold text-blue-900 text-lg">
+            Kaique Barbosa Dultra
+          </h3>
+
+          <p class="text-sm mt-2 text-blue-900 text-lg">
+            Desenvolvedor
+          </p>
+
+          <p class="text-gray-600 text-sm mt-2">
+            Responsável pelo desenvolvimento do site do Fluxo de Caixa.
+          </p>
+
+        </div>
+
+      </div>
     </div>
 
   </div>

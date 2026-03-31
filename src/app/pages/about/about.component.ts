@@ -17,7 +17,7 @@ export class AboutComponent {
     {
       nome: 'Kaillany Lima de Almeida',
       descricao: 'Responsável pela interface e experiência do usuário.',
-      foto: 'assets/images/pig-money.png'
+      foto: 'assets/images/kaylanny.jpeg'
     },
     {
       nome: 'Julia Helena Saffe',
@@ -32,7 +32,7 @@ export class AboutComponent {
     {
       nome: 'Sara Andrade Timóteo dos Santos',
       descricao: 'Responsável pelos patrocinadores do Fluxo de Caixa.',
-      foto: 'assets/images/pig-money.png'
+      foto: 'assets/images/sara.jpeg'
     },
     {
       nome: 'Erika Cristina de Oliveira Jacinto',
@@ -47,13 +47,13 @@ export class AboutComponent {
     {
       nome: 'Allan Fernandes de Souza Archanjo',
       descricao: 'Responsável pelo desenvolvimento da planilha.',
-      foto: 'assets/images/pig-money.png'
+      foto: 'assets/images/alan.jpeg'
     },
     {
       nome: 'Jennifer Micaela Ricardo Marques',
       descricao: 'Responsável pelas regras de negócio.',
       foto: 'assets/images/jennifer.jpeg'
-    }
+    },
   ];
 
 }
